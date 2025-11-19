@@ -14,6 +14,25 @@
 // - Propriété public $titulaire
 // - Propriété public $solde
 
+class CompteBancaire {
+    public $titulaire;
+    public $solde;
+
+    public function __construct($titulaire, $soldeInitial) {
+        $this->titulaire = $titulaire;
+        $this->solde = $soldeInitial;
+        echo "✅ Compte créé pour {$this->titulaire} avec {$this->solde}€\n";
+    }
+
+    public function deposer($montant) {
+        $this->solde += $montant;
+        echo "💰 Dépôt de {$montant}€\n";
+    }
+
+    public function afficherSolde() {
+        echo "💰 Solde de {$this->titulaire} : {$this->solde}€\n";
+    }
+}
 
 
 
@@ -62,6 +81,17 @@
 //
 // Indice : $compte = new CompteBancaire("Jean", 1000);
 
+echo "=== Création des comptes ===\n";
+$compteJean = new CompteBancaire("Jean", 1000);
+$compteMarie = new CompteBancaire("Marie", 500);
+
+echo "\n=== Opérations sur le compte de Jean ===\n";
+$compteJean->deposer(200);
+$compteJean->afficherSolde();
+
+echo "\n=== Opérations sur le compte de Marie ===\n";
+$compteMarie->deposer(200);
+$compteMarie->afficherSolde();
 
 
 
