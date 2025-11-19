@@ -21,8 +21,26 @@
 // abstract class Forme { ... }
 // abstract public function calculerAire();
 
+abstract class Animal {
+    abstract public function cri(): string;
+    // Je n'écris RIEN ici ! Pas de code !
+}
+
+class Chat extends Animal {
+    public function cri(): string
+    {
+        return 'miaou';
+    }
+}
+
+class Chien extends Animal {
+    public function test(): string{
+        return "hello";
+    }
+}
 
 
+$chien = new Chien();
 
 // ─────────────────────────────────────────────────────────────────────────
 // TODO 2 : Créer la classe Cercle
@@ -66,7 +84,7 @@
 
 
 
-// ─────────────────────────────────────────────────────────────────────────
+// ───────────                                                                     ──────────────────────────────────────────────────────────────
 // ✅ BRAVO ! Tu as terminé le Projet 06
 // ─────────────────────────────────────────────────────────────────────────
 //

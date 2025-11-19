@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * 🔒 PROJET 03 : PUBLIC VS PRIVATE
  * Concept : Encapsulation (protéger les données sensibles)
@@ -16,6 +17,41 @@
 //
 // Attention : PRIVATE, pas public !
 
+
+class Portefeuille{
+     private string $proprietaire;
+     private int $argentDisponible;
+
+    public function __construct(string $proprietaire, int $argentInitial){
+        $this->proprietaire = $proprietaire;
+        $this->argentDisponible = $argentInitial;
+        echo "Portefeuille créé pour {$this->proprietaire} avec {$this->argentDisponible}€\n";
+    }
+
+    public function getArgent():int {
+        return $this->argentDisponible;
+    }
+
+    public function ajouterArgent(int $montant):void {
+        if ($montant > 0) {
+            $this->argentDisponible += $montant;
+            echo "Ajout de {$montant}€\n";
+        } else {
+            echo "Montant invalide !\n";
+        }
+    }
+
+    public function retirerArgent(int $montant):void {
+        if ($montant <= 0) {
+            echo "Montant invalide !\n";
+        } elseif ($montant > $this->argentDisponible) {
+            echo "Fonds insuffisants !\n";
+        } else {
+            $this->argentDisponible -= $montant;
+            echo "Retrait de {$montant}€\n";
+        }
+    }
+}
 
 
 
@@ -84,6 +120,27 @@
 // 5. Tenter d'ajouter -20€ (devrait échouer)
 // 6. Afficher l'argent final
 
+echo "=== Test du Portefeuille ===\n\n";
+
+$monPortefeuille = new Portefeuille("Stéphane", 100);
+
+echo "\n1. Afficher l'argent disponible :\n";
+echo "Argent disponible : " . $monPortefeuille->getArgent() . "€\n\n";
+
+echo "2. Ajouter 50€ :\n";
+$monPortefeuille->ajouterArgent(50);
+
+echo "\n3. Retirer 30€ :\n";
+$monPortefeuille->retirerArgent(30);
+
+echo "\n4. Tenter de retirer 500€ (devrait échouer) :\n";
+$monPortefeuille->retirerArgent(500);
+
+echo "\n5. Tenter d'ajouter -20€ (devrait échouer) :\n";
+$monPortefeuille->ajouterArgent(-20);
+
+echo "\n6. Afficher l'argent final :\n";
+echo "Argent final : " . $monPortefeuille->getArgent() . "€\n";
 
 
 

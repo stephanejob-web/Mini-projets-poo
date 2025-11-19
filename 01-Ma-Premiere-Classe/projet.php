@@ -17,6 +17,19 @@
 //
 // Indice : class NomDeClasse { ... }
 
+class Voiture {
+    public $marque;
+    public $couleur;
+    public $vitesseMax;
+
+    public function demarrer() {
+        echo "🚗 Vrooooom ! La {$this->marque} démarre !\n";
+    }
+
+    public function klaxonner() {
+        echo "🎺 POUET POUET ! ({$this->couleur})\n";
+    }
+}
 
 
 
@@ -55,6 +68,15 @@
 //
 // Indice : $objet = new NomClasse();
 
+$ferrari = new Voiture();
+$ferrari->marque = "Ferrari";
+$ferrari->couleur = "Rouge";
+$ferrari->vitesseMax = 320;
+
+$twingo = new Voiture();
+$twingo->marque = "Renault Twingo";
+$twingo->couleur = "Jaune";
+$twingo->vitesseMax = 150;
 
 
 
@@ -69,6 +91,15 @@
 //
 // Exemple : $ferrari->demarrer();
 
+echo "=== Test de la Ferrari ===\n";
+$ferrari->demarrer();
+$ferrari->klaxonner();
+echo "Vitesse max : {$ferrari->vitesseMax} km/h\n\n";
+
+echo "=== Test de la Twingo ===\n";
+$twingo->demarrer();
+$twingo->klaxonner();
+echo "Vitesse max : {$twingo->vitesseMax} km/h\n";
 
 
 

@@ -1,4 +1,4 @@
-# 💳 Projet 07 : Interfaces
+œ# 💳 Projet 07 : Interfaces
 
 ## 🎯 Objectif
 Maîtriser les interfaces et les contrats stricts en POO.
